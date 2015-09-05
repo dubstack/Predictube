@@ -23,10 +23,10 @@ def main():
 			print view_count_cumulative[:10]
 			print "Aaquib"
 			# fraction.append(float(subscriber_cumulative)/view_count_cumulative)
-	# fraction = map(lambda x: x*100, fraction)
-	# fraction = sorted(fraction)
-	# plt.plot(fraction)
-	# plt.show()
+	fraction = map(lambda x: x*100, fraction)
+	fraction = sorted(fraction)
+	plt.plot(fraction)
+	plt.show()
 
 if __name__ == '__main__':
 	main()
