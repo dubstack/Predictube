@@ -1,0 +1,1 @@
+Commentlength folder contains plots and scripts to plot number of views VS average comment length for video ids mentioned in "obtained91000" from as these videos were retrieved correctly.
