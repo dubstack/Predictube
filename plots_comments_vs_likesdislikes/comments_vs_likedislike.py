@@ -28,7 +28,7 @@ def comments_vs_likedislike(working_directory):
 	details=detail.read().split('\n')[:-1]
 	detail.close()
 	details=sorted(details,key=lambda x:-int(x.split('\t')[-4]))
-	pearson(details)
+	#pearson(details)
 	likes=[int(details[i].split('\t')[-3]) for i in range(10000)]
 	dislikes=[int(details[i].split('\t')[-2]) for i in range(10000)]
 	comments=[math.log(int(details[i].split('\t')[-1])+1) for i in range(10000)]

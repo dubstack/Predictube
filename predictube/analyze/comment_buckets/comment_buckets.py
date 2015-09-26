@@ -5,11 +5,13 @@ import math
 import numpy
 
 def plot(X,Y):
-	print len(X)
 	plt.plot(X, Y, 'ro')
-	plt.axis([min(X), max(X), min(Y), max(Y)])
+	plt.axis([min(X)-1, max(X), min(Y)-100, max(Y)+100])
 	plt.ylabel('#comments')
-	plt.xlabel('time of day')
+	if len(X)==24:
+		plt.xlabel('hour of day')
+	else:
+		plt.xlabel('weekday')
 	plt.show()
 
 def bucket(working_directory,video_id):
@@ -42,9 +44,12 @@ def main():
 		hb, wb = bucket(working_directory,fl)
 		hourbuckets=[hourbuckets[i]+hb[i] for i in range(24)]
 		weekbuckets=[weekbuckets[i]+wb[i] for i in range(7)]
-	plot([i for i in range(24)],hourbuckets)
-	#plot([i for i in range(7)],weekbuckets)
+	plot([i+1 for i in range(24)],hourbuckets)
+	plot([i+1 for i in range(7)],weekbuckets)
 	print hourbuckets, weekbuckets
+
+# for our data: hourbuckets=[484280, 476082, 450082, 415858, 372862, 322483, 279622, 237281, 211177, 200547, 201263, 214988, 239696, 276273, 317489, 359266, 395048, 424540, 449011, 477380, 508320, 518507, 507467, 494051]
+# for our data: weekbuckets=[1253323, 1244601, 1269488, 1216702, 1259317, 1285270, 1304872]
 
 if __name__=="__main__":
 	main()
